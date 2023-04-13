@@ -39,6 +39,6 @@ ests
 summary(ests, conf.int = T)
 fit_no_gender <- with(imp,lm(wgt ~ age + hgt + WC))
 D1(fit, fit_no_gender)
-D1(fit,with(imp,lm(wgt ~ age + hgt + WC)))
+summary(pool(fit_no_gender), conf.int = T)
 imp50 <- mice(NHANES2, maxit = 20, m = 50, seed = 1, printFlag = F)
 D1(with(imp50,lm(wgt ~ gender + age + hgt + WC)),with(imp50,lm(wgt ~  age + hgt + WC)))
